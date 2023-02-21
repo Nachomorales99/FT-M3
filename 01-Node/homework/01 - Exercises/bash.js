@@ -15,7 +15,7 @@ let bash = () => {
 		let cmd = args.shift();
 
 		commands[cmd]
-			? commands[cmd](print, args)
+			? commands[cmd](print, args.join(' '))
 			: print(`command not found: ${cmd}`);
 	});
 };

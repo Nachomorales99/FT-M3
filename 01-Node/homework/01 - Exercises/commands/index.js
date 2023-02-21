@@ -44,8 +44,8 @@ let tail = (print, args) => {
 
 let curl = (print, args) => {
 	utils.request(args, (error, response) => {
-		if (error) throw Error(error);
-		print(response);
+		if (error) print(error.toString());
+		else print(response.toString());
 	});
 };
 
