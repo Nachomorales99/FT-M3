@@ -52,7 +52,7 @@ function problemB() {
 
 	exerciseUtils
 		.promisifiedReadFile('poem-one/wrong-file-name.txt')
-		.then((stanza) => exerciseUtils.blue(stanza))
+		.then((stanza4) => exerciseUtils.blue(stanza4))
 		.catch((err) => exerciseUtils.magenta(new Error(err)));
 }
 
@@ -72,4 +72,27 @@ function problemC() {
 
 	// promise version
 	// Tu código acá:
+
+	//MI VERSION
+
+	exerciseUtils
+		.promisifiedReadFile('poem-one/stanza-03.txt')
+		.then((stanza3) => exerciseUtils.blue(stanza3))
+		.catch((err) => exerciseUtils.magenta(new Error(err)));
+
+	exerciseUtils
+		.promisifiedReadFile('poem-one/wrong-file-name.txt')
+		.then((stanza4) => exerciseUtils.blue(stanza4))
+		.catch((err) => exerciseUtils.magenta(new Error(err)));
+
+	//VERSION CR - PARA MI ES CONTRAPRUDUCENTE PORQUE SI HAY ERROR EN LA PRIMERA LA SEGUNDA MURIO
+
+	exerciseUtils
+		.promisifiedReadFile('poem-one/stanza-03.txt')
+		.then((stanza3) => {
+			exerciseUtils.blue(stanza3);
+			return exerciseUtils.promisifiedReadFile('poem-one/wrong-file-name.txt');
+		})
+		.then((stanza4) => exerciseUtils.blue(stanza4))
+		.catch((err) => exerciseUtils.magenta(new Error(err)));
 }
